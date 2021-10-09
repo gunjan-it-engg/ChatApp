@@ -16,7 +16,7 @@ app.use(express.static(publicDirectoryPath));
 
 let count = 0;
 io.on("connection", (socket) => {
-  socket.broadcast.emit("message", "New user has joined");
+  socket.broadcast.emit("message", "==New user has joined==");
   console.log("New web Socket connection");
   socket.emit("message", "welcome");
 
@@ -30,7 +30,7 @@ io.on("connection", (socket) => {
     callback();
   });
   socket.on("disconnect", () => {
-    io.emit("message", "A new user has left");
+    io.emit("message", "==A new user has left==");
   });
 
   socket.on("sendLocation", (coords, callback) => {
